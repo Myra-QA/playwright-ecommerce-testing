@@ -30,6 +30,11 @@ export default defineConfig({
             testMatch: '**/ui/**/*.spec.ts'
         },
         {
+            name: 'webkit',
+            use: { ...devices['Desktop Safari'] },
+            testMatch: '**/ui/**/*.spec.ts'
+        },
+        {
             name: 'api',
             testMatch: '**/api/**/*.spec.ts',
             use: {
