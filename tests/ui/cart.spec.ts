@@ -145,6 +145,7 @@ test.describe('Cart', () => {
     test('the product added from product detail page appears in the cart', async ({ page, inventory, cart }) => {
         await inventory.openProductByName(products.backpack.name)
         const detail = new ProductDetailPage(page)
+        await detail.expectLoaded()
         await detail.addToCart()
         await cart.goto()
         await cart.expectItemCount(1)
