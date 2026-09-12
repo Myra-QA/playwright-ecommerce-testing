@@ -1,5 +1,7 @@
 # Playwright E-Commerce Test Automation Framework
 
+[![Playwright Tests](https://github.com/Myra-QA/playwright-ecommerce-testing/actions/workflows/playwright.yml/badge.svg)](https://github.com/Myra-QA/playwright-ecommerce-testing/actions/workflows/playwright.yml)
+
 An end-to-end UI and API test automation framework built with **Playwright and TypeScript**, targeting the SauceDemo web application and a dedicated local Node.js mock API.
 
 ## Tech Stack
