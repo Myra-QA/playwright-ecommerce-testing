@@ -12,7 +12,7 @@ export default defineConfig({
             ['html', { open: 'never' }]
         ]
         : [
-            ['html', { open: 'never' }]
+            ['html', { open: 'on-failure'}]
         ],
     webServer: {
         command: 'node mock-api/server.mjs',
