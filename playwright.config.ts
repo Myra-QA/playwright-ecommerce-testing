@@ -6,7 +6,14 @@ export default defineConfig({
     fullyParallel: true,
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 1 : 0,
-    reporter: 'html',
+    reporter: process.env.CI
+        ? [
+            ['github'],
+            ['html', { open: 'never' }]
+        ]
+        : [
+            ['html', { open: 'never' }]
+        ],
     webServer: {
         command: 'node mock-api/server.mjs',
         url: 'http://localhost:3100/health',
@@ -36,8 +43,8 @@ export default defineConfig({
             name: 'webkit',
             use: { ...devices['Desktop Safari'] },
             testMatch: '**/ui/**/*.spec.ts'
-        }] : [] ),
-        
+        }] : []),
+
         {
             name: 'api',
             testMatch: '**/api/**/*.spec.ts',
