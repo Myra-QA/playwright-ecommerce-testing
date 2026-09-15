@@ -4,6 +4,8 @@ export default defineConfig({
     testDir: './tests',
     timeout: 30_000,
     fullyParallel: true,
+    forbidOnly: !!process.env.CI,
+    retries: process.env.CI ? 1 : 0,
     reporter: 'html',
     webServer: {
         command: 'node mock-api/server.mjs',
@@ -29,11 +31,13 @@ export default defineConfig({
             use: { ...devices['Desktop Firefox'] },
             testMatch: '**/ui/**/*.spec.ts'
         },
-        {
+
+        ...(process.env.CI ? [{
             name: 'webkit',
             use: { ...devices['Desktop Safari'] },
             testMatch: '**/ui/**/*.spec.ts'
-        },
+        }] : [] ),
+        
         {
             name: 'api',
             testMatch: '**/api/**/*.spec.ts',
