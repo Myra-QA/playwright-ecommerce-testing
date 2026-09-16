@@ -48,6 +48,7 @@ export default defineConfig({
         {
             name: 'api',
             testMatch: '**/api/**/*.spec.ts',
+            workers: 1,
             use: {
                 baseURL: 'http://localhost:3100',
             },
