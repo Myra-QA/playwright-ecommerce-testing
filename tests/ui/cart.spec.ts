@@ -29,14 +29,19 @@ test.describe('Cart', () => {
     test('each distinct product appears exactly once in the cart', async ({ inventory, cart }) => {
         for (const product of allProducts) {
             await inventory.addToCartByName(product.name)
+
         }
+        
         await cart.goto()
+        await cart.expectLoaded()
+
         const names = await cart.itemNames()
         const expectedNames = allProducts.map(product => product.name)
         expect([...names].sort()).toEqual([...expectedNames].sort())
 
         expect(new Set(names).size).toBe(names.length)
     })
+
     test('cart accepts multiple different products', async ({ inventory, cart }) => {
         const selectedProducts = [
             products.backpack,

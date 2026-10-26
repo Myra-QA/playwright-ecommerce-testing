@@ -39,11 +39,11 @@ export default defineConfig({
             testMatch: '**/ui/**/*.spec.ts'
         },
 
-        ...(process.env.CI ? [{
-            name: 'webkit',
+        {
+            name: 'safari',
             use: { ...devices['Desktop Safari'] },
             testMatch: '**/ui/**/*.spec.ts'
-        }] : []),
+        },
 
         {
             name: 'api',

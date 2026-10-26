@@ -5,9 +5,10 @@
   "description": "Playwright test automation framework with UI and API testing.",
   "scripts": {
     "test": "playwright test",
-    "test:ui": "playwright test --project=chromium --project=firefox",
+    "test:ui": "playwright test --project=chromium --project=firefox --project=safari",
     "test:ui:chrome": "playwright test --project=chromium",
     "test:ui:firefox": "playwright test --project=firefox",
+    "test:ui:safari": "playwright test --project=safari",
     "test:api": "playwright test --project=api",
     "test:debug": "cross-env PWDEBUG=1 playwright test --workers=1",
     "test:headed": "playwright test --project=chromium --headed --workers=1",
@@ -16,7 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@playwright/test": "^1.54.2",
+    "@playwright/test": "^1.64.0",
     "@types/node": "^20.11.0",
     "cross-env": "^10.1.0",
     "typescript": "^5.4.0"
